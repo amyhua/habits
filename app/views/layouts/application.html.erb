@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Habit</title>
+  <title>habits</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+<nav class="admin">
+  <div class="left">
+    <i class="publish-icon">publish</i>
+  </div>
+  <div class="middle">
+    <a href="/">This is the blog title</a>
+  </div>
+  <div class="settings right">
+    <i class="gear-icon">gear</i>
+    <ul>
+      <li>HTML / CSS</li>
+      <li>Account</li>
+      <li>Logout</li>
+    </ul>
+  </div>
+</nav>
+
+<div class="content">
+
 <%= yield %>
 
+</div>
 </body>
 </html>

@@ -72,7 +72,7 @@ nav {
 	}
 }
 
-.sidebar, .main {
+.content {
 	margin-top: 50px;	
 	padding: $nav-padding;
 }
@@ -93,6 +93,29 @@ nav {
 		.post {
 			border-bottom: 1px solid #ddd;
 			padding-bottom: 1rem;
+
+			header {
+				small, a {
+					color: #999;
+					cursor: pointer;
+
+					&:hover {
+						color: inherit;
+					}
+				}
+			}
 		}
+	}
+}
+
+.form {
+	padding: 1rem;
+
+	input[type="text"] {
+		min-width: 500px;
+	}
+	textarea {
+		min-width: 500px;
+		min-height: 300px;
 	}
 }
