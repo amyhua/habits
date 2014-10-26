@@ -1,14 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div class="form">
+<article class="post">
+<header>
+	<h2><%= @post.title %></h2>
+</header>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<%= raw @post.body_html %>
 
-<p>
-  <strong>Body html:</strong>
-  <%= @post.body_html %>
-</p>
+</article>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
+</div>

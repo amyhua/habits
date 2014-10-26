@@ -1,5 +1,10 @@
 $nav-padding: 1rem;
+$nav-height: 50px;
 $form-width: 600px;
+
+a {
+	text-decoration: none;
+}
 
 h1 {
 	color: red;
@@ -43,6 +48,15 @@ nav {
 			right: 0;
 			text-align: right;
 			z-index: 3;
+
+			&:hover > ul {
+				visibility: visible;
+			}
+		}
+
+		&.settings {
+			height: $nav-height;
+			box-sizing: border-box;
 		}
 
 		> ul {
@@ -60,6 +74,8 @@ nav {
 		    position: relative;
 		    top: $nav-padding;	
 		    left: $nav-padding;
+
+		    visibility: collapse;
 
 		    li {
 		    	padding: 0.25rem 1rem;
@@ -96,7 +112,13 @@ nav {
 	section {
 		.post {
 			border-bottom: 1px solid #ddd;
-			padding-bottom: 2rem;
+			padding-bottom: 50px;
+
+			max-height: 300px;
+			overflow: hidden;
+			position: relative;
+
+			transition: max-height 1s ease-in-out;
 
 			header {
 				small, a {
@@ -110,6 +132,35 @@ nav {
 
 				padding-bottom: 1rem;
 			}
+
+			&.expand {	
+				height: auto;
+				max-height: 9999px;
+
+				.read-more {
+					display: none;
+				}
+			}
+
+			.read-more {
+				position: absolute; 
+				bottom: 0;
+				left: 0;
+				width: 100%; 
+				text-align: center; 
+				margin: 0;
+				padding-top: 50px; 
+				padding-bottom: 10px;
+
+				cursor: pointer;
+				
+				/* "transparent" only works here because == rgba(0,0,0,0) */ 
+				background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, transparent),color-stop(1, white));
+		        background-image: -webkit-linear-gradient(top, transparent, white);
+		        background-image: -moz-linear-gradient(top, transparent, white);
+		        background-image: -ms-linear-gradient(top, transparent, white);
+		        background-image: -o-linear-gradient(top, transparent, white);
+		    }
 		}
 	}
 }

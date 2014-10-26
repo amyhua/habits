@@ -53,7 +53,7 @@
     <% @posts.each do |post| %>
       <article class="post">
         <header>
-          <h2><%= post.title %></h2>
+          <h2><%= link_to post.title, post %></h2>
           <small>
             <%= link_to 'Edit', edit_post_path(post) %>
           </small>
@@ -62,7 +62,9 @@
           </small>
         </header>
         <%= raw post.body_html %>
-        ...<%= link_to 'Show More', post %>
+        <p class="read-more">
+          +
+        </p>
       </article>
         
     <% end %>
