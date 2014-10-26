@@ -2,3 +2,86 @@ h1 {
 	color: red;
 }
 
+
+body {
+	font-family: "Helvetica", "Helvetica Neue", sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+nav {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: #ddd;
+	opacity: 0.9;
+	z-index: 2;
+
+	&:after {
+		height: 50px;
+	}
+
+	div {
+		position: absolute;
+		text-align: center;
+		top: 0;
+		padding: 1rem;
+
+		&.left {
+			left: 0;
+		}
+
+		&.middle {
+			position: relative;		
+		}
+
+		&.right {
+			right: 0;
+			text-align: right;
+		}
+
+		> ul {
+		    background: white;
+		    margin: 0;
+		    list-style: none;
+		    line-height: 1.5rem;
+		    padding: 0;
+
+		    border-radius: 5px;
+		    border-top-left-radius: 0;
+		    border-top-right-radius: 0;
+		    border: solid 1px #ddd;
+
+		    position: relative;
+		    top: 1rem;	
+		    left: 1rem;
+
+		    li {
+		    	padding: 0.25rem 1rem;
+		    	min-width: 150px;
+		    	text-align: left;
+		    	cursor: pointer;
+
+		    	&:hover {
+		    		background: #ddd;
+		    	}
+		    }
+		}
+	}
+}
+
+.sidebar, .main {
+	margin-top: 50px;	
+}
+
+.sidebar {
+	margin-top: 50px;
+	width: 300px;
+	height: 100%;
+	position: absolute;
+}
+
+.main {
+	position: absolute;
+	left: 300px;
+}

@@ -9,3 +9,5 @@ This app is meant to be a personal diary,... with a flair for data analysis. Ima
 ####1. Basic blog
 
 The basic blog will feature blog posts, in reverse chronological order, with a sidebar of month/year timestamps for sorting and organization.
+
+
