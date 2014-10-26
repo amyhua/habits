@@ -1,4 +1,5 @@
 $nav-padding: 1rem;
+$form-width: 600px;
 
 h1 {
 	color: red;
@@ -31,6 +32,7 @@ nav {
 
 		&.left {
 			left: 0;
+			z-index: 3;
 		}
 
 		&.middle {
@@ -40,6 +42,7 @@ nav {
 		&.right {
 			right: 0;
 			text-align: right;
+			z-index: 3;
 		}
 
 		> ul {
@@ -87,12 +90,13 @@ nav {
 .main {
 	position: absolute;
 	left: 300px;
-	max-width: 750px;
+	max-width: $form-width;
+	padding-bottom: 100px;
 
 	section {
 		.post {
 			border-bottom: 1px solid #ddd;
-			padding-bottom: 1rem;
+			padding-bottom: 2rem;
 
 			header {
 				small, a {
@@ -103,6 +107,8 @@ nav {
 						color: inherit;
 					}
 				}
+
+				padding-bottom: 1rem;
 			}
 		}
 	}
@@ -110,12 +116,53 @@ nav {
 
 .form {
 	padding: 1rem;
+	max-width: $form-width;
+	margin: auto;
 
 	input[type="text"] {
-		min-width: 500px;
+		width: 100%;
+		padding: 5px;
+  		margin: 5px 0;
+  		box-sizing: border-box;
+
+  		&#post_title {
+  			border: solid;
+  			font-size: 22px;
+  		}
 	}
 	textarea {
 		min-width: 500px;
 		min-height: 300px;
+	}
+
+	::-webkit-input-placeholder {
+	   color: #ccc;
+	}
+
+	:-moz-placeholder { /* Firefox 18- */
+	   color: #ccc;  
+	}
+
+	::-moz-placeholder {  /* Firefox 19+ */
+	   color: #ccc;  
+	}
+
+	:-ms-input-placeholder {  
+	   color: #ccc;  
+	}
+
+	.field {
+		padding: 1rem 0;
+	}
+
+	input[type="submit"] {
+		width: 100%;
+		font-size: 18px;
+		border-image: none;
+		display: block;
+		padding: 5px;
+		-webkit-appearance: none;
+		background: black;
+		color: white;
 	}
 }
