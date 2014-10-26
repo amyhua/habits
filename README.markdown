@@ -14,9 +14,10 @@ The basic blog will feature blog posts, in reverse chronological order, with a s
 
 CRUD capabilities for posts.
 
-####3. Account Management
+####3. Basic Histories
 
-Ability to log in, log out with a password to access blog dashboard / admin nav.
+In addition to reflective journal entries, allow for the ability to log history of different activities, milestones, etc. thoughts and processes and activities accomplished for the day. Only works on a day by day basis. If you forget to log a certain day, that's too bad for you.
+
 
 
 
