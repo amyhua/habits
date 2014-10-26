@@ -1,0 +1,8 @@
+## Habit Tracker
+
+This app is meant to be a personal diary,... with a flair for data analysis. Imagine being able to write your own journal entries and then have your journal automatically analyze your habits, moods, trends, analytics, etc. for you after you are done composing your post. The more you write, the better it gets.
+
+### Design
+
+#### Initial Stage
+
