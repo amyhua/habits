@@ -1,3 +1,5 @@
+$nav-padding: 1rem;
+
 h1 {
 	color: red;
 }
@@ -25,7 +27,7 @@ nav {
 		position: absolute;
 		text-align: center;
 		top: 0;
-		padding: 1rem;
+		padding: $nav-padding;
 
 		&.left {
 			left: 0;
@@ -53,8 +55,8 @@ nav {
 		    border: solid 1px #ddd;
 
 		    position: relative;
-		    top: 1rem;	
-		    left: 1rem;
+		    top: $nav-padding;	
+		    left: $nav-padding;
 
 		    li {
 		    	padding: 0.25rem 1rem;
@@ -72,6 +74,7 @@ nav {
 
 .sidebar, .main {
 	margin-top: 50px;	
+	padding: $nav-padding;
 }
 
 .sidebar {
@@ -84,4 +87,12 @@ nav {
 .main {
 	position: absolute;
 	left: 300px;
+	max-width: 750px;
+
+	section {
+		.post {
+			border-bottom: 1px solid #ddd;
+			padding-bottom: 1rem;
+		}
+	}
 }
