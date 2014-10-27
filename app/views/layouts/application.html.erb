@@ -40,21 +40,24 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title" id="myModalLabel">
-          Log History
+          Log a History <span class="subtle">or two</span>
         </h4>
       </div>
       <%= form_for(@history, remote: true) do |f| %>
       <div class="modal-body">
 
         <%= f.text_field :tag, class: 'tags-input', value: 'logged a new entry,am alive' %>
+        <small class="centered">
+          Per Day. Use common phrases to track common achievements, activities, failures, and milestones.
+        </small>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         
-        <%= f.submit 'Log History', html: {
-            "data-dismiss" => "modal",
-            'class' => 'btn btn-primary'
-            } %>
+        <%= f.submit 'Log History',
+            'class' => 'btn btn-primary',
+            'id' => 'log-history-btn'
+            %>
       </div>
       <% end %>
     </div>

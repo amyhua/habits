@@ -9,14 +9,12 @@ function initialize() {
 	$('.tags-input').tagsInput({
 		'width':'100%',
 		'height': 'auto',
-		'defaultText': 'add more'
+		'defaultText': 'add more tags'
 	});
 
 	// log history
 	$('#log-history-btn').click(function() {
-		var tags = $("#new-history.tags-input").val();
-		console.log(tags);
-		sendParams(tags);
+		$('#myModal').modal('hide') 
 	});
 }
 
@@ -31,7 +29,7 @@ function sendParams(tags){
     data: { history: { tags: 'tags' } },
     contentType: 'json',
     success: function(data) {
-    	alert(tags);
+    	alert(data);
     }
   });
 }

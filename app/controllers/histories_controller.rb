@@ -9,10 +9,11 @@ class HistoriesController < ApplicationController
 	end
 
 	def create
-		tags = params["history"]["tag"].split
-		for t in tags
-    	@history = History.new({tag: t})
+		tags = params["history"]["tag"].split(',')
+		tags.each do |t|
+    	@history = History.new({tag: Time.now.to_date.to_s + '|' + t})
     	@history.save
+    	# TODO: ensure histories are unique FOR THE DAY
     end
 		respond_to do |format|
       format.html { render nothing: true }
