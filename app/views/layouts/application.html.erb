@@ -43,16 +43,20 @@
           Log History
         </h4>
       </div>
+      <%= form_for(@history, remote: true) do |f| %>
       <div class="modal-body">
-        ...
-        <input id="new-history" class="tags-input" value="logged a new entry,am alive" />
+
+        <%= f.text_field :tag, class: 'tags-input', value: 'logged a new entry,am alive' %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">
-          Log History
-        </button>
+        
+        <%= f.submit 'Log History', html: {
+            "data-dismiss" => "modal",
+            'class' => 'btn btn-primary'
+            } %>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
