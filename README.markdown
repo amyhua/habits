@@ -12,7 +12,7 @@ The basic blog will feature blog posts, in reverse chronological order, with a s
 
 ####2. Post Management
 
-CRUD capabilities for posts.
+CRUD capabilities for posts. Implement "Read More" feature.
 
 ####3. Basic Histories
 
