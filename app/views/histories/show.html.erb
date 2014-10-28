@@ -7,18 +7,18 @@
 <!-- Place it to the left of the sidebar -->
 <div class="main">
 	<% if @histories.length > 0 %>
-	<section class="today">
+
+	<section class="graph">
 		<header>
-			<h2>Latest</h2>
+			<h2>Histories Bubble Graph</h2>
+			<p>
+				What do you tend to do the most nowadays? This bubble graph measures your habits by darkening the circles which represent things you have most recently done, and enlargening the circles of things which you tend to (log and) do a lot.
+			</p>
 		</header>
-
-		<ul>
-			<% for hist in @today %>
-			<li><%= hist.tagline %></li>
-			<% end %>
-		</ul>
-
+		<div id="histories-bubble-graph">
+		</div>
 	</section>
+
 	<section class="history">
 		<header>
 			<h2>History</h2>
@@ -26,7 +26,7 @@
 
 		<ul>
 			<% for hist in @histories %>
-			<li><%= hist.tag %></li>
+			<li><%= hist.tagline %></li>
 			<% end %>
 		</ul>
 	</section>

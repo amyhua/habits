@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'posts#index'
 
-  get 'api/histories/last-week' => 'histories#last_week_json'
+  get 'api/histories/last-week/bubble' => 'histories#last_week_bubble_api'
 
-  get 'api/histories/all' => 'histories#all_json'
+  get 'api/histories/all' => 'histories#all_api'
 
   get 'histories' => 'histories#index', as: :personal_history
 

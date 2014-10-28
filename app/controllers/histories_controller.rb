@@ -28,7 +28,7 @@ class HistoriesController < ApplicationController
     end
   end
 
-  def all_json
+  def all_api
     all_tags = History.all.map { |h| {
       tagday: h["tagday"],
       tagline: h["tagline"] }
@@ -38,7 +38,7 @@ class HistoriesController < ApplicationController
     end
   end
 
-  def last_week_json
+  def last_week_bubble_api
     uniq_taglines = History.all.map { |h| h["tagline"] }.uniq
 
     all_tags = History.all.map { |h| {
@@ -67,8 +67,8 @@ class HistoriesController < ApplicationController
       day[:tagday] == 0.day.ago.to_date.to_s }
       .map { |date, ary| 
         {
-          mostRecentDate: date,
-          tagsGroup: ary.map { |h| { tag: h[:tagline], totalFreq: h[:size] } }
+          name: date,
+          children: ary.map { |h| { name: h[:tagline], size: h[:size] } }
         }
       }
 
@@ -76,8 +76,8 @@ class HistoriesController < ApplicationController
       day[:tagday] == 1.day.ago.to_date.to_s }
       .map { |date, ary| 
         {
-          mostRecentDate: date,
-          tagsGroup: ary.map { |h| { tag: h[:tagline], totalFreq: h[:size] } }
+          name: date,
+          children: ary.map { |h| { name: h[:tagline], size: h[:size] } }
         }
       }
 
@@ -85,8 +85,8 @@ class HistoriesController < ApplicationController
       day[:tagday] == 2.day.ago.to_date.to_s }
       .map { |date, ary| 
         {
-          mostRecentDate: date,
-          tagsGroup: ary.map { |h| { tag: h[:tagline], totalFreq: h[:size] } }
+          name: date,
+          children: ary.map { |h| { name: h[:tagline], size: h[:size] } }
         }
       }
 
@@ -94,8 +94,8 @@ class HistoriesController < ApplicationController
       day[:tagday] == 3.day.ago.to_date.to_s }
       .map { |date, ary| 
         {
-          mostRecentDate: date,
-          tagsGroup: ary.map { |h| { tag: h[:tagline], totalFreq: h[:size] } }
+          name: date,
+          children: ary.map { |h| { name: h[:tagline], size: h[:size] } }
         }
       }
 
@@ -103,8 +103,8 @@ class HistoriesController < ApplicationController
       day[:tagday] == 4.day.ago.to_date.to_s }
       .map { |date, ary| 
         {
-          mostRecentDate: date,
-          tagsGroup: ary.map { |h| { tag: h[:tagline], totalFreq: h[:size] } }
+          name: date,
+          children: ary.map { |h| { name: h[:tagline], size: h[:size] } }
         }
       }
 
@@ -112,8 +112,8 @@ class HistoriesController < ApplicationController
       day[:tagday] == 5.day.ago.to_date.to_s }
       .map { |date, ary| 
         {
-          mostRecentDate: date,
-          tagsGroup: ary.map { |h| { tag: h[:tagline], totalFreq: h[:size] } }
+          name: date,
+          children: ary.map { |h| { name: h[:tagline], size: h[:size] } }
         }
       }
 
@@ -121,17 +121,21 @@ class HistoriesController < ApplicationController
       day[:tagday] == 6.day.ago.to_date.to_s }
       .map { |date, ary| 
         {
-          mostRecentDate: date,
-          tagsGroup: ary.map { |h| { tag: h[:tagline], totalFreq: h[:size] } }
+          name: date,
+          children: ary.map { |h| { name: h[:tagline], size: h[:size] } }
         }
       }
 
     stage3 = stage3_0 + stage3_1 + stage3_2 + stage3_3 + stage3_4 + stage3_5 + stage3_6
            
+    stage4 = {
+      name: "flare",
+      children: stage3
+    }
 
   	tags = History.all.map { |h| h["tag"] }
   	respond_to do |format|
-  		format.json { render json: stage3 }
+  		format.json { render json: stage4 }
   	end
   end
 
