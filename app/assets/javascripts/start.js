@@ -9,12 +9,17 @@ function initialize() {
 	$('.tags-input').tagsInput({
 		'width':'100%',
 		'height': 'auto',
-		'defaultText': 'add more tags'
+		'defaultText': 'add more tags',
+		'autocomplete_url':'/historiesjson.json',
+	  'autocomplete': {selectFirst:true,width:'100px',autoFill:true}
+
+
 	});
 
 	// log history
 	$('#log-history-btn').click(function() {
 		$('#myModal').modal('hide') 
+		// TODO: Add to localStorage, to preserve PER DAY tags
 	});
 }
 

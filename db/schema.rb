@@ -11,12 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141027002343) do
+ActiveRecord::Schema.define(version: 20141027234619) do
 
   create_table "histories", force: true do |t|
     t.string   "tag"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "tagline"
+    t.string   "tagday"
   end
 
   create_table "posts", force: true do |t|

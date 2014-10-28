@@ -1,0 +1,35 @@
+<!-- Graph Javascript -->
+<script>
+
+</script>
+
+
+<!-- Place it to the left of the sidebar -->
+<div class="main">
+	<% if @histories.length > 0 %>
+	<section class="today">
+		<header>
+			<h2>Latest</h2>
+		</header>
+
+		<ul>
+			<% for hist in @today %>
+			<li><%= hist.tagline %></li>
+			<% end %>
+		</ul>
+
+	</section>
+	<section class="history">
+		<header>
+			<h2>History</h2>
+		</header>
+
+		<ul>
+			<% for hist in @histories %>
+			<li><%= hist.tag %></li>
+			<% end %>
+		</ul>
+	</section>
+
+	<% end %>
+</div>

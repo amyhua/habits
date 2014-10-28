@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'posts#index'
 
+  get 'historiesjson' => 'histories#json'
+
+  get 'histories' => 'histories#index', as: :personal_history
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
