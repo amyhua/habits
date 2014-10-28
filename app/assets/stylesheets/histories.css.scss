@@ -1,3 +1,25 @@
 #history_tag_tag {
 	width: 175px !important;
 }
+
+#log-history-page-btn {
+	width: 100%;
+	margin: 1em 0;
+}
+
+#all-history {
+	max-height: 400px;
+	overflow-y: auto;
+	border-radius: 5px;
+	border: solid 1px #ddd;
+	margin: 1em 0;
+	padding: 1em 2em;
+
+	li {
+	    width: 100%;
+	}
+
+	li small.subtle {
+	    float: right;
+	}
+}

@@ -10,8 +10,8 @@ h1 {
 	color: red;
 }
 
-span.subtle {
-	color: #999;
+.subtle {
+	color: #ddd;
 }
 span.centered {
 	display: block;
@@ -29,12 +29,23 @@ nav {
 	position: fixed;
 	top: 0;
 	width: 100%;
-	background-color: #ddd;
+	background-color: white;
 	opacity: 0.9;
+	border-bottom: solid 1px #ddd;
 	z-index: 2;
 
 	&:after {
 		height: 50px;
+	}
+
+	a {
+		display: inline-block;
+		padding: 0 1em;
+
+		&:hover {
+			text-decoration: none;
+			color: black;
+		}
 	}
 
 	div {

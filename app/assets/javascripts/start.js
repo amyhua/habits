@@ -24,6 +24,7 @@ function initialize() {
 
 	// visualize history
 	drawHistoriesBubbleGraph();
+	redrawHistoriesBubbleGraph();
 
 
 }
@@ -58,8 +59,16 @@ function drawHistoriesBubbleGraph() {
 	    .size([diameter, diameter])
 	    .padding(1.5);
 
-	var svg = d3.select("#histories-bubble-graph").append("svg")
-	    .attr("width", diameter)
+	if ($("#histories-bubble-graph svg").length === 0) {
+		var svg = d3.select("#histories-bubble-graph")
+					.append("svg")
+					.attr('id', 'histories-bubble-graph-svg');
+	} else {
+		var svg = d3.select("#histories-bubble-graph-svg");
+	}
+
+	svg
+		.attr("width", diameter)
 	    .attr("height", diameter)
 	    .attr("class", "bubble");
 
@@ -98,4 +107,10 @@ function drawHistoriesBubbleGraph() {
 	}
 
 	d3.select(self.frameElement).style("height", diameter + "px");
+}
+
+function redrawHistoriesBubbleGraph() {
+	$('#log-history-page-btn').on('click', function() {
+		drawHistoriesBubbleGraph();	
+	});
 }

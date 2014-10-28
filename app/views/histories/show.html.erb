@@ -19,16 +19,38 @@
 		</div>
 	</section>
 
+	<section class="new-history">
+		<%= form_for(@history, remote: true) do |f| %>
+      <div>
+
+        <%= f.text_field :tag, class: 'tags-input', value: 'logged a new entry,am alive' %>
+        <small class="centered">
+          Per Day. Use common phrases to track common achievements, activities, failures, and milestones.
+        </small>
+      </div>
+      <%= f.submit 'Log New History',
+	      'class' => 'btn btn-primary',
+	      'id' => 'log-history-page-btn'
+	      %>
+    <% end %>	
+	</section>
+
 	<section class="history">
 		<header>
-			<h2>History</h2>
+			<h2>All Logged History</h2>
+			<p>
+				Including a list of all logged histories, ordered by most recently logged.
+			</p>
 		</header>
-
-		<ul>
-			<% for hist in @histories %>
-			<li><%= hist.tagline %></li>
-			<% end %>
-		</ul>
+		<div id="all-history">
+			<ol>
+				<% for hist in @histories %>
+				<li><%= hist.tagline %> 
+					<small class="subtle"><%= hist.created_at.to_date %></small>
+				</li>
+				<% end %>
+			</ol>
+		</div>
 	</section>
 
 	<% end %>
