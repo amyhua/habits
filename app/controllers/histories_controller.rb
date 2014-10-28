@@ -53,11 +53,19 @@ class HistoriesController < ApplicationController
       }
     end
 
-    stage3 = stage2.chunk { |day| 1.day.ago.to_date.to_s if day[:tagday] == 1.day.ago.to_date.to_s }
+    stage3 = stage2.chunk { |day| 1.day.ago.to_date.to_s if 
+      day[:tagday] == 1.day.ago.to_date.to_s ||
+      day[:tagday] == 2.day.ago.to_date.to_s ||
+      day[:tagday] == 3.day.ago.to_date.to_s ||
+      day[:tagday] == 4.day.ago.to_date.to_s ||
+      day[:tagday] == 5.day.ago.to_date.to_s ||
+      day[:tagday] == 6.day.ago.to_date.to_s ||
+      day[:tagday] == 7.day.ago.to_date.to_s
+    }
       .map do |date, ary| 
         {
-          date: date,
-          group: ary.map { |h| { tagline: h[:tagline], size: h[:size] } }
+          mostRecentDate: date,
+          tagsGroup: ary.map { |h| { tag: h[:tagline], totalFreq: h[:size] } }
         }
       end
 
