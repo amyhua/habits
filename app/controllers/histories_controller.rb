@@ -28,7 +28,17 @@ class HistoriesController < ApplicationController
     end
   end
 
-  def json
+  def all_json
+    all_tags = History.all.map { |h| {
+      tagday: h["tagday"],
+      tagline: h["tagline"] }
+    }
+    respond_to do |format|
+      format.json { render json: all_tags }
+    end
+  end
+
+  def last_week_json
     uniq_taglines = History.all.map { |h| h["tagline"] }.uniq
 
     all_tags = History.all.map { |h| {
@@ -52,22 +62,72 @@ class HistoriesController < ApplicationController
         size: tag[:tagdays].length
       }
     end
-
-    stage3 = stage2.chunk { |day| 1.day.ago.to_date.to_s if 
-      day[:tagday] == 1.day.ago.to_date.to_s ||
-      day[:tagday] == 2.day.ago.to_date.to_s ||
-      day[:tagday] == 3.day.ago.to_date.to_s ||
-      day[:tagday] == 4.day.ago.to_date.to_s ||
-      day[:tagday] == 5.day.ago.to_date.to_s ||
-      day[:tagday] == 6.day.ago.to_date.to_s ||
-      day[:tagday] == 7.day.ago.to_date.to_s
-    }
-      .map do |date, ary| 
+    # TODO: index these substages.
+    stage3_0 = stage2.chunk { |day| 0.day.ago.to_date.to_s if 
+      day[:tagday] == 0.day.ago.to_date.to_s }
+      .map { |date, ary| 
         {
           mostRecentDate: date,
           tagsGroup: ary.map { |h| { tag: h[:tagline], totalFreq: h[:size] } }
         }
-      end
+      }
+
+    stage3_1 = stage2.chunk { |day| 1.day.ago.to_date.to_s if 
+      day[:tagday] == 1.day.ago.to_date.to_s }
+      .map { |date, ary| 
+        {
+          mostRecentDate: date,
+          tagsGroup: ary.map { |h| { tag: h[:tagline], totalFreq: h[:size] } }
+        }
+      }
+
+    stage3_2 = stage2.chunk { |day| 2.day.ago.to_date.to_s if 
+      day[:tagday] == 2.day.ago.to_date.to_s }
+      .map { |date, ary| 
+        {
+          mostRecentDate: date,
+          tagsGroup: ary.map { |h| { tag: h[:tagline], totalFreq: h[:size] } }
+        }
+      }
+
+    stage3_3 = stage2.chunk { |day| 3.day.ago.to_date.to_s if 
+      day[:tagday] == 3.day.ago.to_date.to_s }
+      .map { |date, ary| 
+        {
+          mostRecentDate: date,
+          tagsGroup: ary.map { |h| { tag: h[:tagline], totalFreq: h[:size] } }
+        }
+      }
+
+    stage3_4 = stage2.chunk { |day| 4.day.ago.to_date.to_s if 
+      day[:tagday] == 4.day.ago.to_date.to_s }
+      .map { |date, ary| 
+        {
+          mostRecentDate: date,
+          tagsGroup: ary.map { |h| { tag: h[:tagline], totalFreq: h[:size] } }
+        }
+      }
+
+    stage3_5 = stage2.chunk { |day| 5.day.ago.to_date.to_s if 
+      day[:tagday] == 5.day.ago.to_date.to_s }
+      .map { |date, ary| 
+        {
+          mostRecentDate: date,
+          tagsGroup: ary.map { |h| { tag: h[:tagline], totalFreq: h[:size] } }
+        }
+      }
+
+    stage3_6 = stage2.chunk { |day| 6.day.ago.to_date.to_s if 
+      day[:tagday] == 6.day.ago.to_date.to_s }
+      .map { |date, ary| 
+        {
+          mostRecentDate: date,
+          tagsGroup: ary.map { |h| { tag: h[:tagline], totalFreq: h[:size] } }
+        }
+      }
+
+    stage3 = stage3_0 + stage3_1 + stage3_2 + stage3_3 + stage3_4 + stage3_5 + stage3_6
+           
 
   	tags = History.all.map { |h| h["tag"] }
   	respond_to do |format|
