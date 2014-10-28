@@ -31,7 +31,6 @@ class HistoriesController < ApplicationController
   def json
     uniq_taglines = History.all.map { |h| h["tagline"] }.uniq
 
-    tags2 = History.all
     all_tags = History.all.map { |h| {
       tagday: h["tagday"],
       tagline: h["tagline"] }
@@ -39,15 +38,32 @@ class HistoriesController < ApplicationController
 
 
     stage1 = uniq_taglines.map do |tagline|
-      { tagline: tagline,
+      { 
+        tagline: tagline,
         tagdays: all_tags.map { |h| h[:tagday] if h[:tagline] == tagline }
           .compact
       }
     end
 
+    stage2 = stage1.map do |tag|
+      {
+        tagday: tag[:tagdays][0],
+        tagline: tag[:tagline],
+        size: tag[:tagdays].length
+      }
+    end
+
+    stage3 = stage2.chunk { |day| 1.day.ago.to_date.to_s if day[:tagday] == 1.day.ago.to_date.to_s }
+      .map do |date, ary| 
+        {
+          date: date,
+          group: ary.map { |h| { tagline: h[:tagline], size: h[:size] } }
+        }
+      end
+
   	tags = History.all.map { |h| h["tag"] }
   	respond_to do |format|
-  		format.json { render json: stage1 }
+  		format.json { render json: stage3 }
   	end
   end
 
