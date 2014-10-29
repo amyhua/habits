@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141027234619) do
+ActiveRecord::Schema.define(version: 20141029002559) do
 
   create_table "histories", force: true do |t|
     t.string   "tag"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20141027234619) do
     t.text     "body_html"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "mood"
   end
 
 end

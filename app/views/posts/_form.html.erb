@@ -17,7 +17,27 @@
   <div class="field">
     <%= f.text_area :body_html %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div  class="emoticons-bar centered"
+        id="choose-note-emoticons-bar">
+    <p>
+      Choose the mood that best represents your overall post.
+    </p>
+    <div class="emoticon emoticon-1" title="extreme sadness"></div>
+    <div class="emoticon emoticon-2"></div>
+    <div class="emoticon emoticon-3"></div>
+    <div class="emoticon emoticon-4"></div>
+    <div class="emoticon emoticon-5" title="meh, neutral"></div>
+    <div class="emoticon emoticon-6"></div>
+    <div class="emoticon emoticon-7"></div>
+    <div class="emoticon emoticon-8"></div>
+    <div class="emoticon emoticon-9" title="extreme happiness"></div>
   </div>
+
+  <%= f.hidden_field :mood %>
+
+  <div class="actions">
+    <%= f.submit 'Create Note', id: 'create-note-btn' %>
+  </div>
+
 <% end %>

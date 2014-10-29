@@ -1,6 +1,6 @@
 $nav-padding: 1rem;
 $nav-height: 50px;
-$form-width: 600px;
+$form-width: 750px;
 
 a {
 	text-decoration: none;
@@ -13,6 +13,11 @@ h1 {
 .subtle {
 	color: #ddd;
 }
+
+.centered {
+	text-align: center;
+}
+
 span.centered {
 	display: block;
 	text-align: center;

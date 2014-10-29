@@ -1,3 +1,86 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.emoticons-bar {
+	margin: 3em 0;
+}
+
+div.emoticon {
+  display: inline-block;
+  cursor: pointer;
+
+  &:hover {
+  	opacity: 0.5;
+  }
+}
+
+div.emoticon-1 {
+  background-image: url(/assets/emoticon_sprite.png);
+  height: 72px;
+  width: 73px;
+  background-position: -4px -10px;
+}
+
+div.emoticon-1 {
+  background-image: url(/assets/emoticon_sprite.png);
+  height: 72px;
+  width: 73px;
+  background-position: -1px -308px;
+}
+
+div.emoticon-2 {
+  background-image: url(/assets/emoticon_sprite.png);
+  height: 72px;
+  width: 73px;
+  background-position: -374px -308px;
+}
+
+div.emoticon-3 {
+  background-image: url(/assets/emoticon_sprite.png);
+  height: 72px;
+  width: 73px;
+  background-position: -598px -386px;
+}
+
+div.emoticon-4 {
+  background-image: url(/assets/emoticon_sprite.png);
+  height: 72px;
+  width: 73px;
+  background-position: -448px -386px;
+}
+
+div.emoticon-5 {
+  background-image: url(/assets/emoticon_sprite.png);
+  height: 72px;
+  width: 73px;
+  background-position: -150px -386px;
+}
+
+div.emoticon-6 {
+  background-image: url(/assets/emoticon_sprite.png);
+  height: 72px;
+  width: 73px;
+  background-position: -150px -466px;
+}
+
+div.emoticon-7 {
+  background-image: url(/assets/emoticon_sprite.png);
+  height: 72px;
+  width: 73px;
+  background-position: -521px -386px;
+}
+
+div.emoticon-8 {
+  background-image: url(/assets/emoticon_sprite.png);
+  height: 72px;
+  width: 73px;
+  background-position: -300px -308px;
+}
+
+div.emoticon-9 {
+  background-image: url(/assets/emoticon_sprite.png);
+  height: 72px;
+  width: 73px;
+  background-position: -76px -308px;
+}
