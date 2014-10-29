@@ -28,6 +28,7 @@ function initialize() {
 
 	// create note
 	createNoteChooseEmoticon();
+	createNoteEmbedEmoticons();
 
 
 }
@@ -132,5 +133,34 @@ function createNoteChooseEmoticon() {
 		$('#post_mood').val(mood);
 		$('#create-note-btn').removeClass('disable-btn');
 	});
+}
 
+
+function createNoteEmbedEmoticons() {
+	if ($('#new_post').length === 0) {
+		return;
+	}
+
+	var html;
+
+	$('.froala-element').on('keyup', function(){
+
+		var _this = this;
+
+		html = $(_this).html();
+		html = html.replace(":1", '<span class="emoticon emoticon-1"></span>');
+		html = html.replace(":2", '<span class="emoticon emoticon-2"></span>');
+		html = html.replace(":3", '<span class="emoticon emoticon-3"></span>');
+		html = html.replace(":4", '<span class="emoticon emoticon-4"></span>');
+		html = html.replace(":5", '<span class="emoticon emoticon-5"></span>');
+		html = html.replace(":6", '<span class="emoticon emoticon-6"></span>');
+		html = html.replace(":7", '<span class="emoticon emoticon-7"></span>');
+		html = html.replace(":8", '<span class="emoticon emoticon-8"></span>');
+		html = html.replace(":9", '<span class="emoticon emoticon-9"></span>');
+		console.log(html);
+	});
+
+	$('.froala-element').on('focusout', function() {
+		$(this).html(html);
+	})
 }
