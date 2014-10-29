@@ -240,5 +240,10 @@ nav {
 		-webkit-appearance: none;
 		background: black;
 		color: white;
+
+		&.disable-btn {
+			pointer-events: none;
+			background: #696969;
+		}
 	}
 }

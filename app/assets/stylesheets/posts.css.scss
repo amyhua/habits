@@ -10,7 +10,7 @@ div.emoticon {
   display: inline-block;
   cursor: pointer;
 
-  &:hover {
+  &:hover, &.active {
   	opacity: 0.5;
   }
 }

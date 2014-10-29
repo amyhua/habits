@@ -26,6 +26,9 @@ function initialize() {
 	drawHistoriesBubbleGraph();
 	redrawHistoriesBubbleGraph();
 
+	// create note
+	createNoteChooseEmoticon();
+
 
 }
 
@@ -113,4 +116,21 @@ function redrawHistoriesBubbleGraph() {
 	$('#log-history-page-btn').on('click', function() {
 		drawHistoriesBubbleGraph();	
 	});
+}
+
+function createNoteChooseEmoticon() {
+	if ($('#choose-note-emoticons-bar').length === 0) {
+		return;
+	}
+
+	$('#create-note-btn').addClass('disable-btn');
+
+	$('#choose-note-emoticons-bar').on('click', '.emoticon', function() {
+		$('.emoticon').removeClass('active');
+		$(this).addClass('active');
+		var mood = $(this).data('mood');
+		$('#post_mood').val(mood);
+		$('#create-note-btn').removeClass('disable-btn');
+	});
+
 }
